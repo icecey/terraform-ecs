@@ -15,10 +15,22 @@ To get internet traffic to containers using a load balancer, the load balancer i
 - All configurations can be changed in:
 
 ```shell
-variables.sh
+variables.ft
 ```
 
-You can choose your docker image application to deploy in Fargate, changing `app_image` and `app_port` in variables.tf
+You can choose your docker image application to deploy in Fargate, changing `app_image` and `app_port` in `variables.tf`
+
+```shell
+variable "az_count" {
+  description = "Number of AZs to cover in a given region"
+  default     = "2"
+}
+
+variable "app_image" {
+  description = "Docker image to run in the ECS cluster"
+  default     = "gcr.io/google-samples/hello-app:2.0"
+}
+```
 
 1- Terraform init, plan and validate scripts
 
@@ -38,6 +50,12 @@ terraform apply
 ```
 
 Output console: `Plan: 34 to add, 0 to change, 0 to destroy.`
+
+Before to create all resources you can access to application with
+
+```
+curl -v http:/<LOAD_BALANCER_HOSTNAME>/
+```
 
 3. Remember to destroy all resources to avoid incurring payments
 
