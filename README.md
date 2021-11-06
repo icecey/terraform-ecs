@@ -10,7 +10,7 @@
   - Health checks and logs
 
 To get internet traffic to containers using a load balancer, the load balancer is placed into a public subnet. ECS configures the load balancer to forward traffic to the container tasks in the private subnet:
-![alt text](https://github.com/CarlosPalaciosC/terraform-ecs/blob/main/networking.png?raw=true "Deployments")
+![alt text](https://github.com/CarlosPalaciosC/terraform-ecs/blob/master/networking.png?raw=true "Deployments")
 
 - All configurations can be changed in:
 
