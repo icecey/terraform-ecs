@@ -12,6 +12,8 @@
 To get internet traffic to containers using a load balancer, the load balancer is placed into a public subnet. ECS configures the load balancer to forward traffic to the container tasks in the private subnet:
 ![alt text](https://github.com/CarlosPalaciosC/terraform-ecs/blob/master/networking.png?raw=true "Deployments")
 
+This configuration allows your tasks in Fargate to be safely isolated from the rest of the internet. They can still initiate network communication with external resources via the NAT gateway, and still receive traffic from the public via the Application Load Balancer that is in the public subnet.
+
 - All configurations can be changed in:
 
 ```shell
@@ -32,7 +34,7 @@ variable "app_image" {
 }
 ```
 
-1- Terraform init, plan and validate scripts
+1. Terraform init, plan and validate scripts
 
 ```shell
 terraform init
