@@ -40,8 +40,8 @@ resource "aws_ecs_service" "main" {
   }
 
   service_registries {
-    container_name  = "cb-app"
-    registry_arn    = aws_service_discovery_service.cb-app.arn
+    container_name = "cb-app"
+    registry_arn   = aws_service_discovery_service.cb-app.arn
   }
 
   load_balancer {
